@@ -1,19 +1,21 @@
+import { ThemeProvider } from '@mui/material';
 import Content from '../layout/Content';
 import Header from '../layout/Header';
-import Navigation from '../layout/Navigation';
 import SideBar from '../layout/SideBar';
+import { darkTheme } from '../../themes/theme';
 
 const MyTunez = () => {
   return (
-    <div className="app">
-      <Header />
-      <Navigation />
+    <ThemeProvider theme={darkTheme}>
+      <div className="app">
+        <Header />
 
-      <div className="main">
-        <SideBar />
-        <Content />
+        <div className="main">
+          <SideBar />
+          <Content />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 

@@ -4,7 +4,7 @@
 }
 
 .main {
-  height: calc(100% - #{$header-height} - #{$nav-height});
+  height: calc(100% - #{$header-height});
   width: 100%;
   display: grid;
   grid-template-columns: 1.2fr 5fr;

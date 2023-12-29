@@ -1,4 +1,15 @@
 .side-bar {
-  background-color: $bg-300;
-  border-right: 1px solid $border;
+  display: flex;
+  align-items: center;
+
+  &__artists {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__separator {
+    width: 1px;
+    border-radius: 50%;
+    height: 90%;
+  }
 }
