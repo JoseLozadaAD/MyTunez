@@ -1,0 +1,56 @@
+.card {
+  padding: 2rem;
+
+  &__header {
+    h3 {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__body {
+    display: flex;
+    padding: 2rem;
+    padding-left: 0;
+  }
+
+  &__media {
+    height: 22rem;
+    width: 22rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding: 0 2rem;
+  }
+
+  &__title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__song {
+    margin-top: 1rem;
+    display: flex;
+
+    h5,
+    h6 {
+      font-weight: 100;
+    }
+
+    h5 {
+      margin-right: 8px;
+    }
+
+    h6 {
+      margin-left: auto;
+    }
+  }
+}

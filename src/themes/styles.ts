@@ -42,3 +42,20 @@ export const artistsStyle = (theme: Theme) => ({
     background: theme.palette.primary.dark,
   },
 });
+
+export const contentStyle = (theme: Theme) => ({
+  bgcolor: 'secondary.main',
+
+  '&::-webkit-scrollbar': {
+    width: '5px',
+  },
+  '&::-webkit-scrollbar-track': {
+    background: theme.palette.secondary.main,
+  },
+  '&::-webkit-scrollbar-thumb': {
+    background: theme.palette.primary.dark,
+  },
+  '&::-webkit-scrollbar-thumb:hover': {
+    background: theme.palette.primary.main,
+  },
+});

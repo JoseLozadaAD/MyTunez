@@ -43,7 +43,7 @@ const SideBar = () => {
 
       <Box
         className={`side-bar__separator ${hasVerticalScrollbar ? 'hide' : ''}`}
-        sx={{ bgcolor: 'secondary.contrastText' }}
+        sx={{ bgcolor: 'primary.dark' }}
       ></Box>
     </Box>
   );
