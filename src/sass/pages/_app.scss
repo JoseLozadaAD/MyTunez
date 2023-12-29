@@ -1,0 +1,11 @@
+.app {
+  height: 100vh;
+  width: 100%;
+}
+
+.main {
+  height: calc(100% - #{$header-height} - #{$nav-height});
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 5fr;
+}

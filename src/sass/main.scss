@@ -1,1 +1,15 @@
+// Utils
+@import 'utils/variables';
+@import 'utils/mixins';
+
+// Base
 @import 'base/base';
+
+// Pages
+@import 'pages/app';
+
+// Layout
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/sideBar';
+@import 'layout/content';
