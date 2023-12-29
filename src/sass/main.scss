@@ -1,6 +1,7 @@
 // Utils
 @import 'utils/variables';
 @import 'utils/mixins';
+@import 'utils/utils';
 
 // Base
 @import 'base/base';
@@ -12,3 +13,10 @@
 @import 'layout/header';
 @import 'layout/sideBar';
 @import 'layout/content';
+
+// Components
+@import 'components/mediaPlayer';
+@import 'components/optionsPlayer';
+@import 'components/search';
+@import 'components/progressBar';
+@import 'components/artists';

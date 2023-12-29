@@ -1,0 +1,23 @@
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 30rem;
+
+  &__slider {
+    width: 100%;
+    margin: 0 2rem;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__duration {
+    margin-top: -1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
