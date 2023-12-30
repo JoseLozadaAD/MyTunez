@@ -1,6 +1,7 @@
 import { Box, IconButton, InputBase, useTheme } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
-import { searchStyle } from '../../themes/styles';
+
+import { colorPrimaryContrast, searchStyle } from '../../themes/styles';
 
 const Search = () => {
   const theme = useTheme();
@@ -9,7 +10,7 @@ const Search = () => {
     <Box className="search" sx={searchStyle(theme)}>
       <InputBase className="search__input" placeholder="Search" />
       <IconButton type="button" aria-label="search">
-        <SearchIcon sx={{ color: 'primary.contrastText' }} />
+        <SearchIcon sx={colorPrimaryContrast} />
       </IconButton>
     </Box>
   );

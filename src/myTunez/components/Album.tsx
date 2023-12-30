@@ -1,5 +1,8 @@
 import { Box, Divider, Typography } from '@mui/material';
+
 import Song from './Song';
+
+import { bgPrimaryContrast } from '../../themes/styles';
 
 const songs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -8,7 +11,7 @@ const Album = () => {
     <Box className="card">
       <Box className="card__header">
         <Typography variant="h3">MyTunez</Typography>
-        <Divider sx={{ bgcolor: 'primary.contrastText' }} />
+        <Divider sx={bgPrimaryContrast} />
       </Box>
 
       <Box className="card__body">

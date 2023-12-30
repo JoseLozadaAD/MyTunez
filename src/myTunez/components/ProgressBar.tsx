@@ -1,11 +1,16 @@
 import { Box, Slider, Typography } from '@mui/material';
 import { Loop, Shuffle } from '@mui/icons-material';
-import { sliderStyles } from '../../themes/styles';
+
+import {
+  colorPrimaryContrast,
+  colorPrimaryMain,
+  sliderStyles,
+} from '../../themes/styles';
 
 const ProgressBar = () => {
   return (
     <Box className="progress-bar">
-      <Loop className="progress-bar__icon" sx={{ color: 'primary.main' }} />
+      <Loop className="progress-bar__icon" sx={colorPrimaryMain} />
       <Box className="progress-bar__slider">
         <Slider
           defaultValue={0}
@@ -22,10 +27,7 @@ const ProgressBar = () => {
           <Typography variant="caption">2:45</Typography>
         </Box>
       </Box>
-      <Shuffle
-        className="progress-bar__icon"
-        sx={{ color: 'primary.contrastText' }}
-      />
+      <Shuffle className="progress-bar__icon" sx={colorPrimaryContrast} />
     </Box>
   );
 };

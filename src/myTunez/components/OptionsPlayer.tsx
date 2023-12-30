@@ -1,5 +1,8 @@
 import { Box, Typography } from '@mui/material';
+
 import ProgressBar from './ProgressBar';
+
+import { colorPrimaryContrast } from '../../themes/styles';
 
 const OptionsPlayer = () => {
   return (
@@ -23,7 +26,7 @@ const OptionsPlayer = () => {
 
         <Typography
           variant="h5"
-          sx={{ color: 'primary.contrastText' }}
+          sx={colorPrimaryContrast}
           className="options-player__title"
         >
           Cluster One - The Division Bell

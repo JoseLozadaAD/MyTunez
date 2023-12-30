@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 import type { ArtistType } from '../../types/Artist.type';
 
-import { artistStyle } from '../../themes/styles';
+import { artistStyle, colorSecondaryContrast } from '../../themes/styles';
 
 const Artist = ({ image, name }: ArtistType) => {
   return (
@@ -14,9 +14,7 @@ const Artist = ({ image, name }: ArtistType) => {
       <Typography
         variant="h5"
         className="artist__name"
-        sx={{
-          color: 'secondary.contrastText',
-        }}
+        sx={colorSecondaryContrast}
       >
         {name}
       </Typography>

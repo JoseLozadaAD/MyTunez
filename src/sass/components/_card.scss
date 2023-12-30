@@ -52,5 +52,22 @@
     h6 {
       margin-left: auto;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .icon-song {
+      display: inline-block !important;
+    }
+
+    &:hover .number-song {
+      display: none;
+    }
   }
+}
+
+.icon-song {
+  display: none !important;
+  margin-right: 6px;
 }

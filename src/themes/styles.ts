@@ -1,5 +1,45 @@
 import { Theme } from '@mui/material';
 
+export const bgPrimaryMain = {
+  bgcolor: 'primary.main',
+};
+
+export const colorPrimaryMain = {
+  color: 'primary.main',
+};
+
+export const bgPrimaryContrast = {
+  bgcolor: 'primary.contrastText',
+};
+
+export const colorPrimaryContrast = {
+  color: 'primary.contrastText',
+};
+
+export const bgSecondaryMain = {
+  bgcolor: 'secondary.main',
+};
+
+export const colorSecondaryMain = {
+  color: 'secondary.main',
+};
+
+export const bgSecondaryContrast = {
+  bgcolor: 'secondary.contrastText',
+};
+
+export const colorSecondaryContrast = {
+  color: 'secondary.contrastText',
+};
+
+export const bgSecondaryDark = {
+  bgcolor: 'secondary.dark',
+};
+
+export const bgPrimaryDark = {
+  bgcolor: 'primary.dark',
+};
+
 export const sliderStyles = {
   marginBottom: 0,
 

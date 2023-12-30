@@ -64,6 +64,7 @@ html {
 }
 
 .side-bar {
+  position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -244,6 +245,26 @@ html {
 }
 .card__song h6 {
   margin-left: auto;
+}
+.card__song:hover {
+  cursor: pointer;
+}
+.card__song:hover .icon-song {
+  display: inline-block !important;
+}
+.card__song:hover .number-song {
+  display: none;
+}
+
+.icon-song {
+  display: none !important;
+  margin-right: 6px;
+}
+
+.float-button {
+  position: absolute !important;
+  top: 2rem;
+  right: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

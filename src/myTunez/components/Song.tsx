@@ -1,11 +1,16 @@
 import { Box, Typography } from '@mui/material';
 
 import type { SongType } from '../../types/Song.type';
+import { PlayArrow } from '@mui/icons-material';
 
 const Song = ({ number, name, time }: SongType) => {
   return (
     <Box className="card__song">
-      <Typography variant="h5">{`${number}.`}</Typography>
+      {icon()}
+      <Typography
+        variant="h5"
+        className="number-song"
+      >{`${number}.`}</Typography>
       <Typography variant="h5">{name}</Typography>
       <Typography variant="h6" sx={{ color: 'primary.contrastText' }}>
         {time}
@@ -13,5 +18,9 @@ const Song = ({ number, name, time }: SongType) => {
     </Box>
   );
 };
+
+const icon = () => (
+  <PlayArrow className="icon-song" sx={{ color: 'primary.main' }} />
+);
 
 export default Song;

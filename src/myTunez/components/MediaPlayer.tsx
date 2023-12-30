@@ -7,22 +7,24 @@ import {
 
 import VolumeSlider from './VolumeSlider';
 
+import { bgPrimaryMain } from '../../themes/styles';
+
 const MediaPlayer = () => {
   return (
     <Box className="media-player">
       <Box className="media-player__controls">
-        <Fab size="small" sx={{ bgcolor: 'primary.main' }} aria-label="add">
+        <Fab size="small" sx={bgPrimaryMain} aria-label="add">
           <KeyboardDoubleArrowLeft
             sx={{ color: 'primary.contrastText' }}
             fontSize="large"
           />
         </Fab>
 
-        <Fab size="small" sx={{ bgcolor: 'primary.main' }} aria-label="add">
+        <Fab size="small" sx={bgPrimaryMain} aria-label="add">
           <PlayArrow sx={{ color: 'primary.contrastText' }} fontSize="large" />
         </Fab>
 
-        <Fab size="small" sx={{ bgcolor: 'primary.main' }} aria-label="add">
+        <Fab size="small" sx={bgPrimaryMain} aria-label="add">
           <KeyboardDoubleArrowRight
             sx={{ color: 'primary.contrastText' }}
             fontSize="large"
