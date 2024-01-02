@@ -99,3 +99,20 @@ export const contentStyle = (theme: Theme) => ({
     background: theme.palette.primary.main,
   },
 });
+
+export const modalStyle = (theme: Theme) => ({
+  bgcolor: 'secondary.light',
+  border: `1px solid ${theme.palette.primary.contrastText}`,
+});
+
+export const closeModalStyle = {
+  color: 'primary.contrastText',
+  '&:hover': { color: 'secondary.contrastText' },
+};
+
+export const getStyles = (name: string, genders: string[], theme: Theme) => {
+  return {
+    color: genders.includes(name) ? theme.palette.primary.main : 'white',
+    backgroundColor: theme.palette.secondary.main,
+  };
+};

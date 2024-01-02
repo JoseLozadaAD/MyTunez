@@ -14,6 +14,36 @@ $bg-300: #ffffff;
   display: none !important;
 }
 
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.font-16 {
+  font-size: 1.6rem !important;
+}
+
+.font-12 {
+  font-size: 1.2rem !important;
+}
+
+.font-11 {
+  font-size: 1.1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
+ul {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 *,
 *::after,
 *::before {
@@ -265,6 +295,71 @@ html {
   position: absolute !important;
   top: 2rem;
   right: 2rem;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 30rem;
+  min-height: 20rem;
+  border-radius: 1rem;
+}
+.modal__button {
+  font-size: 1.6rem !important;
+}
+.modal__button:hover {
+  text-decoration: underline !important;
+}
+.modal__button:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 3rem;
+}
+.form__control {
+  width: 100%;
+  margin-top: 1rem;
+}
+.form__control--multi-select {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 30rem;
+}
+.form__input {
+  width: 100% !important;
+  padding: 1rem;
+  margin-bottom: 1rem !important;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.form__input input, .form__input fieldSet, .form__input label {
+  font-size: 1.4rem !important;
+}
+.form__input p {
+  font-size: 1.1rem !important;
+}
+.form__buttons {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.form__buttons button {
+  margin-left: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

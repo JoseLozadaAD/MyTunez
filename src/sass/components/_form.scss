@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 3rem;
+
+  &__control {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  &__control--multi-select {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  &__input {
+    width: 100% !important;
+    padding: 1rem;
+    margin-bottom: 1rem !important;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+
+    & input,
+    & fieldSet,
+    & label {
+      font-size: 1.4rem !important;
+    }
+
+    & p {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    & button {
+      margin-left: 1rem;
+    }
+  }
+}

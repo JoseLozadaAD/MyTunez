@@ -1,0 +1,27 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 30rem;
+    min-height: 20rem;
+    border-radius: 1rem;
+  }
+
+  &__button {
+    font-size: 1.6rem !important;
+
+    &:hover {
+      text-decoration: underline !important;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
