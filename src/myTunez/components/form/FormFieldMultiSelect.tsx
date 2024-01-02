@@ -34,7 +34,7 @@ const FormFieldMultiSelect = ({
       className="form__control--multi-select mb-1"
       error={Boolean(errors[name])}
     >
-      <InputLabel id="multiple-name-label" className="font-16">
+      <InputLabel id="multiple-name-label" className="font-14">
         {`${capitalLetter(name)} *`}
       </InputLabel>
       <Controller
