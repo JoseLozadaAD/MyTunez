@@ -1,9 +1,9 @@
 import { Fab } from '@mui/material';
 import { Add } from '@mui/icons-material';
 
-import type { FloatButtonType } from '../../types/FloatButton.type';
+import type { FloatButtonProps } from '../../types/FloatButton.type';
 
-const FloatButton = ({ handleOpen }: FloatButtonType) => {
+const FloatButton = ({ handleOpen }: FloatButtonProps) => {
   return (
     <Fab
       color="primary"

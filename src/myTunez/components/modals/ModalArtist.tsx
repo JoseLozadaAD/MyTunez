@@ -1,30 +1,28 @@
-import { FieldValues, useForm } from 'react-hook-form';
-
 import { Box, Modal, useTheme } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
 import FormField from '../form/FormField';
 import FormButtons from '../form/FormButtons';
+import useModalForm from '../form/hooks/useModalForm';
 import FormFieldMultiSelect from '../form/FormFieldMultiSelect';
 import { GENDERS } from '../../../constants/genders';
+import { required } from '../../../utils/methods';
 import { ARTISTS } from '../../../constants/localStorage';
-import { persistData, required } from '../../../utils/methods';
-import type { ModalType } from '../../../types/Modal.type';
+import type { ModalProps } from '../../../types/Modal.type';
 
 import { closeModalStyle, modalStyle } from '../../../themes/styles';
-import { successAlert } from '../../../utils/alerts';
 
-const ModalArtist = ({ open, handleClose }: ModalType) => {
+const ModalArtist = ({ open, handleClose }: ModalProps) => {
   const theme = useTheme();
 
-  const formControl = useForm();
-  const { handleSubmit, reset } = formControl;
-
-  const onHandleSubmit = (data: FieldValues) => {
-    persistData(ARTISTS, data);
-    reset();
-    successAlert('Artist created successfully');
-  };
+  const {
+    formControl,
+    reset,
+    onHandleSubmit,
+    handleSubmit,
+    isDisabled,
+    setIsDisabled,
+  } = useModalForm(ARTISTS, handleClose);
 
   return (
     <Modal className="modal" open={open} onClose={handleClose}>
@@ -79,7 +77,11 @@ const ModalArtist = ({ open, handleClose }: ModalType) => {
             rules={required('image')}
           />
 
-          <FormButtons onReset={reset} />
+          <FormButtons
+            onReset={reset}
+            disabled={isDisabled}
+            setDisabled={setIsDisabled}
+          />
         </Box>
       </Box>
     </Modal>

@@ -8,7 +8,7 @@ export const successAlert = (title: string, timer: number = 1500) => {
     position: 'center',
     icon: 'success',
     title,
-    showConfirmButton: true,
+    showConfirmButton: false,
     timer,
   });
 };

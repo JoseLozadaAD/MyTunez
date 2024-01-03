@@ -1,3 +1,3 @@
-export interface FloatButtonType {
+export interface FloatButtonProps {
   handleOpen: () => void;
 }

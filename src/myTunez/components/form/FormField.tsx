@@ -8,6 +8,7 @@ const FormField = ({
   defaultValue,
   formControl,
   rules,
+  type = 'text',
 }: FormFieldProps) => {
   const {
     control,
@@ -31,6 +32,7 @@ const FormField = ({
             variant="outlined"
             error={Boolean(errors[name])}
             helperText={errors[name] && `${errors[name]?.message}`}
+            type={type}
           />
         )}
       />

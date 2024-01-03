@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
-import type { SongType } from '../../types/Song.type';
+import type { SongProps } from '../../types/Song.type';
 import { PlayArrow } from '@mui/icons-material';
 
-const Song = ({ number, name, time }: SongType) => {
+const Song = ({ number, name, time }: SongProps) => {
   return (
     <Box className="card__song">
       {icon()}

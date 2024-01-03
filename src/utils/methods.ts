@@ -11,9 +11,17 @@ export const persistData = (key: string, newData: FieldValues) => {
   const existingData = localStorage.getItem(key);
   const data = existingData ? JSON.parse(existingData) : [];
 
-  data.push(newData);
+  const id = new Date().getTime();
+
+  data.push({ id, ...newData });
 
   const dataString = JSON.stringify(data);
 
   localStorage.setItem(key, dataString);
+};
+
+export const getData = (key: string) => {
+  const data = localStorage.getItem(key);
+
+  return data ? JSON.parse(data) : [];
 };

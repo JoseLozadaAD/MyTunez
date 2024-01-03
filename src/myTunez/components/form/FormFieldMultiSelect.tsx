@@ -21,6 +21,7 @@ const FormFieldMultiSelect = ({
   formControl,
   rules,
   items,
+  isMultiSelect = true,
 }: FormFieldProps) => {
   const theme = useTheme();
 
@@ -47,7 +48,7 @@ const FormFieldMultiSelect = ({
             {...field}
             labelId="multiple-name-label"
             id="multiple-name"
-            multiple
+            multiple={isMultiSelect}
             className="font-12"
             input={<OutlinedInput label={`${capitalLetter(name)} __ *`} />}
             sx={{

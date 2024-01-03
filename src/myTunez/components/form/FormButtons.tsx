@@ -1,24 +1,27 @@
 import { Box, Button } from '@mui/material';
 
-import { FormButtonsProps } from '../../../types/Form.type';
+import type { FormButtonsProps } from '../../../types/Form.type';
 
-const FormButtons = ({ onReset }: FormButtonsProps) => {
-  return (
-    <Box className="form__buttons">
-      <Button
-        variant="outlined"
-        onClick={() => {
-          onReset();
-        }}
-      >
-        Reset
-      </Button>
+const FormButtons = ({
+  onReset,
+  disabled = true,
+  setDisabled,
+}: FormButtonsProps) => (
+  <Box className="form__buttons">
+    <Button
+      variant="outlined"
+      onClick={() => {
+        onReset();
+        setDisabled(true);
+      }}
+    >
+      Reset
+    </Button>
 
-      <Button variant="outlined" type="submit">
-        Save
-      </Button>
-    </Box>
-  );
-};
+    <Button variant="outlined" type="submit" disabled={disabled}>
+      Save
+    </Button>
+  </Box>
+);
 
 export default FormButtons;

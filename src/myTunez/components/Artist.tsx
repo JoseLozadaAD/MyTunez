@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material';
 
-import type { ArtistType } from '../../types/Artist.type';
+import type { ArtistProps } from '../../types/Artist.type';
 
 import { artistStyle, colorSecondaryContrast } from '../../themes/styles';
 
-const Artist = ({ image, name }: ArtistType) => {
+const Artist = ({ image, name }: ArtistProps) => {
   return (
     <Box className="artist artist--all" sx={artistStyle}>
       <Box className="artist__image">

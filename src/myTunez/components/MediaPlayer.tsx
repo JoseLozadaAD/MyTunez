@@ -10,6 +10,16 @@ import VolumeSlider from './VolumeSlider';
 import { bgPrimaryMain } from '../../themes/styles';
 
 const MediaPlayer = () => {
+  /* const audioSrc =
+    'https://files.gospeljingle.com/uploads/music/2022/12/Foster_The_People_-_Pumped_Up_Kicks.mp3';
+
+   return (
+    <audio controls>
+      <source src={audioSrc} type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  ); */
+
   return (
     <Box className="media-player">
       <Box className="media-player__controls">

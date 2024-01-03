@@ -1,4 +1,4 @@
-export interface ArtistType {
+export interface ArtistProps {
   image: string;
   name: string;
   onHandleClick: () => void;
