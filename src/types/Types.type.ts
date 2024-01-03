@@ -1,28 +1,34 @@
+export interface Genre {
+  id: number;
+  name: string;
+}
+
 export interface Artist {
-  id: string;
+  id: number;
   image: string;
   name: string;
-  genders: string;
+  genres: Genre[];
   webSite: string;
   members: string;
 }
 
 export interface Song {
-  id: string;
+  id: number;
   title: string;
   genre: string;
   year: number;
-  artist: string;
-  album: string;
-  duration: string;
+  artist: number;
+  album: number;
+  duration: number;
   link: string;
 }
 
 export interface Album {
-  id: string;
+  id: number;
   title: string;
-  genre: string;
+  genres: Genre[];
   year: number;
-  artist: string;
+  artist: number;
   image: string;
+  songs?: Song[];
 }

@@ -5,10 +5,11 @@ import FormField from '../form/FormField';
 import FormButtons from '../form/FormButtons';
 import useModalForm from '../form/hooks/useModalForm';
 import FormFieldMultiSelect from '../form/FormFieldMultiSelect';
+import { getData } from '../../services/data';
 import { GENDERS } from '../../../constants/genders';
-import { getData, required } from '../../../utils/methods';
-import { ALBUMS, ARTISTS, SONGS } from '../../../constants/localStorage';
-import type { Artist, Song } from '../../../types/Types.type';
+import { required } from '../../../utils/methods';
+import { ALBUMS, ARTISTS } from '../../../constants/localStorage';
+import type { Artist } from '../../../types/Types.type';
 import type { ModalProps } from '../../../types/Modal.type';
 
 import { closeModalStyle, modalStyle } from '../../../themes/styles';
@@ -16,7 +17,6 @@ import { closeModalStyle, modalStyle } from '../../../themes/styles';
 const ModalAlbum = ({ open, handleClose }: ModalProps) => {
   const theme = useTheme();
   const artists = getData(ARTISTS) || [];
-  let songs = getData(SONGS) || [];
 
   const {
     formControl,
@@ -25,11 +25,7 @@ const ModalAlbum = ({ open, handleClose }: ModalProps) => {
     handleSubmit,
     isDisabled,
     setIsDisabled,
-    getValues,
   } = useModalForm(ALBUMS, handleClose);
-
-  const values = getValues();
-  songs = songs.filter((song: Song) => song.album.startsWith(values.title));
 
   return (
     <Modal className="modal" open={open} onClose={handleClose}>
@@ -79,19 +75,14 @@ const ModalAlbum = ({ open, handleClose }: ModalProps) => {
           />
 
           <FormFieldMultiSelect
-            name="songs"
-            defaultValue={[]}
-            formControl={formControl}
-            rules={required('songs')}
-            items={songs.map((song: Song) => song.title)}
-          />
-
-          <FormFieldMultiSelect
             name="artist"
             defaultValue={[]}
             formControl={formControl}
             rules={required('artist')}
-            items={artists.map((artist: Artist) => artist.name)}
+            items={artists.map((artist: Artist) => ({
+              id: artist.id,
+              name: artist.name,
+            }))}
             isMultiSelect={false}
           />
 

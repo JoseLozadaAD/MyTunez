@@ -110,9 +110,7 @@ export const closeModalStyle = {
   '&:hover': { color: 'secondary.contrastText' },
 };
 
-export const getStyles = (name: string, genders: string[], theme: Theme) => {
-  return {
-    color: genders.includes(name) ? theme.palette.primary.main : 'white',
-    backgroundColor: theme.palette.secondary.main,
-  };
-};
+export const getStyles = (id: number, items: number[], theme: Theme) => ({
+  color: items.includes(id) ? theme.palette.primary.main : 'white',
+  backgroundColor: theme.palette.secondary.main,
+});

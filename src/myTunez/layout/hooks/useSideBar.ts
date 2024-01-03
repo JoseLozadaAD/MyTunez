@@ -3,16 +3,16 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import { getData } from '../../../utils/methods';
+import { getData } from '../../services/data';
 import { setAlbums } from '../../store/album/albumSlice';
 import type { Album } from '../../../types/Types.type';
 
 export const useSideBar = () => {
   const theme = useTheme();
+  const dispatch = useDispatch();
   const artistsRef = useRef<HTMLDivElement>(null);
   const [hasVerticalScrollbar, setHasVerticalScrollbar] = useState(false);
 
-  const dispatch = useDispatch();
   const artists = getData('artists') || [];
 
   const handleArtistClick = (artist: string) => {

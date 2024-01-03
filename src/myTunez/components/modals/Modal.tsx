@@ -49,24 +49,24 @@ const Modal = ({ open, handleClose }: ModalProps) => {
           <Button
             color="primary"
             className="modal__button"
-            onClick={handleOpenSong}
+            onClick={handleOpenAlbum}
           >
-            Add song
+            Add album
           </Button>
 
           <Button
             color="primary"
             className="modal__button"
-            onClick={handleOpenAlbum}
+            onClick={handleOpenSong}
           >
-            Add album
+            Add song
           </Button>
         </Box>
       </ModalUI>
 
       <ModalArtist open={openArtist} handleClose={handleCloseArtist} />
-      <ModalSong open={openSong} handleClose={handleCloseSong} />
       <ModalAlbum open={openAlbum} handleClose={handleCloseAlbum} />
+      <ModalSong open={openSong} handleClose={handleCloseSong} />
     </>
   );
 };

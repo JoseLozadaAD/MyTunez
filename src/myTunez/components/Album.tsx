@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 
 import Song from './Song';
-import { getData } from '../../utils/methods';
+import { getData } from '../services/data';
 import { SONGS } from '../../constants/localStorage';
 import type { AlbumProps } from '../../types/Album.type';
 import type { Song as SongType } from '../../types/Types.type';

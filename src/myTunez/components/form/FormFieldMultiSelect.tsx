@@ -59,12 +59,16 @@ const FormFieldMultiSelect = ({
           >
             {items?.map((item) => (
               <MenuItem
-                key={item}
-                value={item}
+                key={item.id}
+                value={item.id}
                 className="font-14"
-                style={getStyles(String(item), field.value, theme)}
+                style={getStyles(
+                  item.id,
+                  isMultiSelect ? field.value : [field.value],
+                  theme,
+                )}
               >
-                {item}
+                {item.name}
               </MenuItem>
             ))}
           </Select>

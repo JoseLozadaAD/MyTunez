@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
+import { persistData } from '../../../services/data';
 import { successAlert } from '../../../../utils/alerts';
-import { capitalLetter, persistData } from '../../../../utils/methods';
+import { capitalLetter } from '../../../../utils/methods';
 
 const useModalForm = (nameStorage: string, handleClose: () => void) => {
   const formControl = useForm();
+  const [isDisabled, setIsDisabled] = useState(true);
+
   const { reset, watch } = formControl;
   const watchAllFields = watch();
-  const [isDisabled, setIsDisabled] = useState(true);
 
   const isFormFilled = Object.values(watchAllFields).every(
     (field) => field !== '' && field.length !== 0,
