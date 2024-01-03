@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 import ProgressBar from './ProgressBar';
 
-import { colorPrimaryContrast } from '../../themes/styles';
+import { colorPrimaryContrast } from '../../../themes/styles';
 
 const OptionsPlayer = () => {
   return (

@@ -5,7 +5,7 @@ import {
   colorPrimaryContrast,
   colorPrimaryMain,
   sliderStyles,
-} from '../../themes/styles';
+} from '../../../themes/styles';
 
 const ProgressBar = () => {
   return (

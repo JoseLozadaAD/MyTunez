@@ -1,19 +1,19 @@
 import { Box } from '@mui/material';
 
-import MediaPlayer from '../components/MediaPlayer';
-import OptionsPlayer from '../components/OptionsPlayer';
 import Search from '../components/Search';
+import Audio from '../components/player/Audio';
+import MediaPlayer from '../components/player/MediaPlayer';
+import OptionsPlayer from '../components/player/OptionsPlayer';
 
 import { bgSecondaryDark } from '../../themes/styles';
 
-const Header = () => {
-  return (
-    <Box className="header" sx={bgSecondaryDark}>
-      <MediaPlayer />
-      <OptionsPlayer />
-      <Search />
-    </Box>
-  );
-};
+const Header = () => (
+  <Box className="header" sx={bgSecondaryDark}>
+    <MediaPlayer />
+    <OptionsPlayer />
+    <Search />
+    <Audio />
+  </Box>
+);
 
 export default Header;
