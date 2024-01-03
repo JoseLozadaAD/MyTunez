@@ -1,5 +1,4 @@
 import { Box, Fab } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   KeyboardDoubleArrowLeft,
   KeyboardDoubleArrowRight,
@@ -8,30 +7,11 @@ import {
 } from '@mui/icons-material';
 
 import VolumeSlider from './VolumeSlider';
-import { setPause, setPlay } from '../../store/player/playerSlice';
-import type { RootState } from '../../store/store';
-
 import { bgPrimaryMain } from '../../../themes/styles';
+import useMediaPlayer from './hooks/useMediaPlayer';
 
 const MediaPlayer = () => {
-  const { isPlaying, audioSrc } = useSelector(
-    (state: RootState) => state.player,
-  );
-  const dispatch = useDispatch();
-
-  const handlePlay = () => {
-    if (audioSrc) {
-      dispatch(setPlay());
-    }
-  };
-
-  const handlePause = () => {
-    dispatch(setPause());
-  };
-
-  /* const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
-  }; */
+  const { isPlaying, handlePlay, handlePause } = useMediaPlayer();
 
   return (
     <Box className="media-player">

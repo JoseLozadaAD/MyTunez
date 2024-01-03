@@ -1,26 +1,29 @@
 import { Box, Typography } from '@mui/material';
 
+import SongIcon from './SongIcon';
+import useSong from './hooks/useSong';
 import type { SongProps } from '../../types/Song.type';
-import { PlayArrow } from '@mui/icons-material';
 
-const Song = ({ number, name, time }: SongProps) => {
+const Song = ({ number, song, handleClick }: SongProps) => {
+  const { handleToggleClick, id, isPlaying } = useSong(handleClick, song);
+
   return (
-    <Box className="card__song">
-      {icon()}
+    <Box
+      onClick={handleToggleClick}
+      className="card__song"
+      sx={{ '&:hover': { bgcolor: 'secondary.dark' } }}
+    >
+      <SongIcon songId={song.id} currentId={id} isPlaying={isPlaying} />
       <Typography
         variant="h5"
-        className="number-song"
+        className={`number-song ${song.id === id ? 'no-opacity' : ''}`}
       >{`${number}.`}</Typography>
-      <Typography variant="h5">{name}</Typography>
+      <Typography variant="h5">{song.title}</Typography>
       <Typography variant="h6" sx={{ color: 'primary.contrastText' }}>
-        {time}
+        {song.duration}
       </Typography>
     </Box>
   );
 };
-
-const icon = () => (
-  <PlayArrow className="icon-song" sx={{ color: 'primary.main' }} />
-);
 
 export default Song;

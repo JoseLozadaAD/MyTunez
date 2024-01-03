@@ -2,6 +2,15 @@
   display: none !important;
 }
 
+.no-opacity {
+  opacity: 0 !important;
+}
+
+.show {
+  opacity: 1 !important;
+  display: block !important;
+}
+
 .close-modal {
   position: absolute;
   top: 1rem;

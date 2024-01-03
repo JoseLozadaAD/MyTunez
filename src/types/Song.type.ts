@@ -1,6 +1,7 @@
+import { Song } from './Types.type';
+
 export interface SongProps {
-  id: number;
   number: number;
-  name: string;
-  time: string;
+  song: Song;
+  handleClick: (song: Song) => void;
 }

@@ -1,14 +1,14 @@
 import { Box, Divider, Typography } from '@mui/material';
 
 import Song from './Song';
-import { getArtistById } from '../services/data';
+import useAlbum from './hooks/useAlbum';
 import type { AlbumProps } from '../../types/Album.type';
 import type { Song as SongType } from '../../types/Types.type';
 
 import { bgPrimaryContrast } from '../../themes/styles';
 
 const Album = ({ album, onHandleClick }: AlbumProps) => {
-  const { name } = getArtistById(album.artist);
+  const { name, handleSongClick } = useAlbum(album);
 
   return (
     <Box className="card">
@@ -31,11 +31,10 @@ const Album = ({ album, onHandleClick }: AlbumProps) => {
           {album.songs &&
             album.songs.map((song: SongType, index: number) => (
               <Song
-                id={song.id}
                 key={song.id}
+                song={song}
                 number={index + 1}
-                name={song.title}
-                time={song.duration}
+                handleClick={() => handleSongClick(song)}
               />
             ))}
         </Box>

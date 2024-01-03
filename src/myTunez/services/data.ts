@@ -44,12 +44,23 @@ export const persistData = (key: string, newData: FieldValues) => {
   }
 };
 
+export const persistVolume = (volume: number) => {
+  localStorage.setItem('volume', JSON.stringify(volume));
+};
+
+export const getVolume = () => {
+  const volume = localStorage.getItem('volume');
+
+  return volume ? JSON.parse(volume) : 100;
+};
+
 const persistSong = (newData: FieldValues) => {
+  const id = new Date().getTime();
   let albums = getData(ALBUMS);
   const album = albums.find((item: Item) => item.id === newData.album);
 
   if (album) {
-    album?.songs.push(newData);
+    album?.songs.push({ id, ...newData });
     albums = albums.filter((item: Item) => item.id !== album.id);
     albums.push(album);
     localStorage.setItem(ALBUMS, JSON.stringify(albums));

@@ -2,13 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isPlaying: false,
-  audioSrc: null,
-  artist: {
-    name: '',
-    cover: '',
+  song: {
+    id: 0,
     title: '',
-    album: '',
+    artistName: '',
+    albumTitle: '',
+    cover: '',
+    audioSrc: null,
   },
+  volume: 100,
 };
 
 const playerSlice = createSlice({
@@ -21,11 +23,14 @@ const playerSlice = createSlice({
     setPause: (state) => {
       state.isPlaying = false;
     },
-    setAudioSrc: (state, action) => {
-      state.audioSrc = action.payload;
+    setSong: (state, action) => {
+      state.song = action.payload;
+    },
+    setVolume: (state, action) => {
+      state.volume = action.payload;
     },
   },
 });
 
-export const { setPlay, setPause, setAudioSrc } = playerSlice.actions;
+export const { setPlay, setPause, setSong, setVolume } = playerSlice.actions;
 export default playerSlice.reducer;

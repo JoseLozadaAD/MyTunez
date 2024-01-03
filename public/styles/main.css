@@ -14,6 +14,15 @@ $bg-300: #ffffff;
   display: none !important;
 }
 
+.no-opacity {
+  opacity: 0 !important;
+}
+
+.show {
+  opacity: 1 !important;
+  display: block !important;
+}
+
 .close-modal {
   position: absolute;
   top: 1rem;
@@ -285,6 +294,9 @@ html {
 .card__song {
   margin-top: 1rem;
   display: flex;
+  padding: 7px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 .card__song h5,
 .card__song h6 {
@@ -300,15 +312,17 @@ html {
   cursor: pointer;
 }
 .card__song:hover .icon-song {
-  display: inline-block !important;
+  opacity: 1;
 }
 .card__song:hover .number-song {
-  display: none;
+  opacity: 0;
 }
 
 .icon-song {
-  display: none !important;
+  position: absolute;
+  opacity: 0;
   margin-right: 6px;
+  margin-top: 2px;
 }
 
 .float-button {
