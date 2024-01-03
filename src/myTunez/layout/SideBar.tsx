@@ -32,7 +32,7 @@ const SideBar = () => {
         <Artist
           image="https://i1.sndcdn.com/avatars-89t1YFIylSQzj6bp-xRzvqA-t500x500.jpg"
           name="All Artists"
-          onHandleClick={() => handleArtistClick('')}
+          onHandleClick={() => handleArtistClick(-1)}
         />
         {artists.length !== 0 ? (
           artists.map((artist: ArtistType) => (
@@ -40,7 +40,7 @@ const SideBar = () => {
               key={artist.id}
               image={artist.image}
               name={artist.name}
-              onHandleClick={() => handleArtistClick(artist.name)}
+              onHandleClick={() => handleArtistClick(artist.id)}
             />
           ))
         ) : (

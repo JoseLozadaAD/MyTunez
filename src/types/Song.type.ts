@@ -1,5 +1,5 @@
 export interface SongProps {
-  id: string;
+  id: number;
   number: number;
   name: string;
   time: string;

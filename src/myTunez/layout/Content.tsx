@@ -15,14 +15,7 @@ const Content = () => {
     <Box className="content" sx={contentStyle}>
       {albums.length !== 0 ? (
         albums.map((album: AlbumType) => (
-          <Album
-            key={album.id}
-            artist={album.artist}
-            title={album.title}
-            year={album.year}
-            image={album.image}
-            onHandleClick={() => {}}
-          />
+          <Album key={album.id} album={album} onHandleClick={() => {}} />
         ))
       ) : (
         <Empty message="No albums" />

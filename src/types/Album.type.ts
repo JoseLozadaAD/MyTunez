@@ -1,7 +1,6 @@
+import { Album } from './Types.type';
+
 export interface AlbumProps {
-  artist: string;
-  title: string;
-  year: number;
-  image: string;
+  album: Album;
   onHandleClick: () => void;
 }

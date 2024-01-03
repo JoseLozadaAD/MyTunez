@@ -19,7 +19,7 @@ export interface Song {
   year: number;
   artist: number;
   album: number;
-  duration: number;
+  duration: string;
   link: string;
 }
 

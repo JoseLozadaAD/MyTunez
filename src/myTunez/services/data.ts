@@ -1,12 +1,35 @@
 import { FieldValues } from 'react-hook-form';
 
-import { ALBUMS, SONGS } from '../../constants/localStorage';
+import { ALBUMS, ARTISTS, SONGS } from '../../constants/localStorage';
 import type { Item } from '../../types/Form.type';
+import { Album, Artist } from '../../types/Types.type';
 
 export const getData = (key: string) => {
   const data = localStorage.getItem(key);
 
   return data ? JSON.parse(data) : [];
+};
+
+export const getArtistById = (id: number) => {
+  const data = localStorage.getItem(ARTISTS);
+
+  return data
+    ? JSON.parse(data).find((artist: Artist) => artist.id === id)
+    : [];
+};
+
+export const getAlbumByArtistId = (id: number) => {
+  const data = localStorage.getItem(ALBUMS);
+
+  if (data) {
+    const albums = JSON.parse(data).filter(
+      (album: Album) => album.artist === id,
+    );
+
+    return id === -1 ? JSON.parse(data) : albums;
+  }
+
+  return [];
 };
 
 export const persistData = (key: string, newData: FieldValues) => {

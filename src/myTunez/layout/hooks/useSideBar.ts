@@ -3,9 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import { getData } from '../../services/data';
+import { getAlbumByArtistId, getData } from '../../services/data';
 import { setAlbums } from '../../store/album/albumSlice';
-import type { Album } from '../../../types/Types.type';
 
 export const useSideBar = () => {
   const theme = useTheme();
@@ -15,11 +14,8 @@ export const useSideBar = () => {
 
   const artists = getData('artists') || [];
 
-  const handleArtistClick = (artist: string) => {
-    const albums =
-      getData('albums').filter((album: Album) =>
-        album.artist.startsWith(artist),
-      ) || [];
+  const handleArtistClick = (artistId: number) => {
+    const albums = getAlbumByArtistId(artistId);
 
     dispatch(setAlbums(albums));
   };
