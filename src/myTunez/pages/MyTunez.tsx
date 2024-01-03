@@ -1,7 +1,9 @@
 import { ThemeProvider } from '@mui/material';
+
 import Content from '../layout/Content';
 import Header from '../layout/Header';
 import SideBar from '../layout/SideBar';
+
 import { darkTheme } from '../../themes/theme';
 
 const MyTunez = () => {

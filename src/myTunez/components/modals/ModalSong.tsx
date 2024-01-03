@@ -7,7 +7,7 @@ import useModalForm from '../form/hooks/useModalForm';
 import FormFieldMultiSelect from '../form/FormFieldMultiSelect';
 import { getData, required } from '../../../utils/methods';
 import { ARTISTS, SONGS } from '../../../constants/localStorage';
-import type { Artist } from '../../../types/Types';
+import type { Artist } from '../../../types/Types.type';
 import type { ModalProps } from '../../../types/Modal.type';
 
 import { closeModalStyle, modalStyle } from '../../../themes/styles';

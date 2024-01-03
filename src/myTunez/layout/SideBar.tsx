@@ -1,22 +1,27 @@
 import { Box } from '@mui/material';
 
+import Empty from '../components/Empty';
 import Artist from '../components/Artist';
-import FloatButton from '../components/FloatButton';
 import Modal from '../components/modals/Modal';
+import FloatButton from '../components/FloatButton';
 import { useSideBar } from './hooks/useSideBar';
+import { useModal } from './hooks/useModal';
+import type { Artist as ArtistType } from '../../types/Types.type';
 
 import {
   artistsStyle,
   bgPrimaryDark,
   bgSecondaryMain,
 } from '../../themes/styles';
-import { useModal } from './hooks/useModal';
-
-const artists = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-//  const artists = [1, 2, 3, 4, 5, 6];
 
 const SideBar = () => {
-  const { artistsRef, hasVerticalScrollbar, theme } = useSideBar();
+  const {
+    artistsRef,
+    hasVerticalScrollbar,
+    theme,
+    artists,
+    handleArtistClick,
+  } = useSideBar();
   const { open, handleOpen, handleClose } = useModal();
 
   return (
@@ -27,15 +32,20 @@ const SideBar = () => {
         <Artist
           image="https://i1.sndcdn.com/avatars-89t1YFIylSQzj6bp-xRzvqA-t500x500.jpg"
           name="All Artists"
-          onHandleClick={() => {}}
+          onHandleClick={() => handleArtistClick('')}
         />
-        {artists.map(() => (
-          <Artist
-            image="https://i1.sndcdn.com/avatars-89t1YFIylSQzj6bp-xRzvqA-t500x500.jpg"
-            name="Nirvana"
-            onHandleClick={() => {}}
-          />
-        ))}
+        {artists.length !== 0 ? (
+          artists.map((artist: ArtistType) => (
+            <Artist
+              key={artist.id}
+              image={artist.image}
+              name={artist.name}
+              onHandleClick={() => handleArtistClick(artist.name)}
+            />
+          ))
+        ) : (
+          <Empty message="No artists" />
+        )}
       </Box>
 
       <Box

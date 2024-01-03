@@ -11,7 +11,7 @@ const useModalForm = (nameStorage: string, handleClose: () => void) => {
   const [isDisabled, setIsDisabled] = useState(true);
 
   const isFormFilled = Object.values(watchAllFields).every(
-    (field) => field !== '' || field.length !== 0,
+    (field) => field !== '' && field.length !== 0,
   );
 
   const { formState } = formControl;

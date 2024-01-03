@@ -17,3 +17,12 @@ export interface Song {
   duration: string;
   link: string;
 }
+
+export interface Album {
+  id: string;
+  title: string;
+  genre: string;
+  year: number;
+  artist: string;
+  image: string;
+}

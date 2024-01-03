@@ -7,14 +7,15 @@ import useModalForm from '../form/hooks/useModalForm';
 import FormFieldMultiSelect from '../form/FormFieldMultiSelect';
 import { GENDERS } from '../../../constants/genders';
 import { getData, required } from '../../../utils/methods';
-import { ALBUMS, SONGS } from '../../../constants/localStorage';
-import type { Song } from '../../../types/Types';
+import { ALBUMS, ARTISTS, SONGS } from '../../../constants/localStorage';
+import type { Artist, Song } from '../../../types/Types.type';
 import type { ModalProps } from '../../../types/Modal.type';
 
 import { closeModalStyle, modalStyle } from '../../../themes/styles';
 
 const ModalAlbum = ({ open, handleClose }: ModalProps) => {
   const theme = useTheme();
+  const artists = getData(ARTISTS) || [];
   let songs = getData(SONGS) || [];
 
   const {
@@ -55,12 +56,11 @@ const ModalAlbum = ({ open, handleClose }: ModalProps) => {
           />
 
           <FormFieldMultiSelect
-            name="gender"
+            name="genders"
             defaultValue={[]}
             formControl={formControl}
-            rules={required('gender')}
+            rules={required('genders')}
             items={GENDERS}
-            isMultiSelect={false}
           />
 
           <FormField
@@ -84,6 +84,15 @@ const ModalAlbum = ({ open, handleClose }: ModalProps) => {
             formControl={formControl}
             rules={required('songs')}
             items={songs.map((song: Song) => song.title)}
+          />
+
+          <FormFieldMultiSelect
+            name="artist"
+            defaultValue={[]}
+            formControl={formControl}
+            rules={required('artist')}
+            items={artists.map((artist: Artist) => artist.name)}
+            isMultiSelect={false}
           />
 
           <FormButtons
