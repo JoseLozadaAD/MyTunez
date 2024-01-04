@@ -32,17 +32,17 @@ const useAudio = () => {
   useEffect(() => {
     const currentAudioRef = audioRef.current;
 
-    if (currentAudioRef) {
+    if (currentAudioRef && Number.isFinite(currentTime) && !isPlaying) {
       currentAudioRef.currentTime = currentTime;
     }
-  }, [currentTime]);
+  }, [currentTime, isPlaying]);
 
   useEffect(() => {
     const currentAudioRef = audioRef.current;
 
     if (!currentAudioRef) return;
 
-    if (getSong) {
+    if (getSong && Number.isFinite(getSong().currentTime)) {
       currentAudioRef.currentTime = getSong().currentTime;
     }
 
@@ -57,7 +57,7 @@ const useAudio = () => {
     return () => {
       currentAudioRef.removeEventListener('timeupdate', updateTime);
     };
-  }, []);
+  }, [dispatch]);
 
   return {
     audioRef,
