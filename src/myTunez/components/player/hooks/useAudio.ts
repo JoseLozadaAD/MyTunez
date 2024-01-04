@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { RootState } from '../../../store/store';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentTime } from '../../../store/player/playerSlice';
+
 import { getSong } from '../../../services/data';
 import { convertToSeconds } from '../../../../utils/methods';
+import { setCurrentTime } from '../../../store/player/playerSlice';
+import type { RootState } from '../../../store/store';
 
 const useAudio = (handleNext: () => void) => {
   const dispatch = useDispatch();

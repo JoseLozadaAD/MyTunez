@@ -1,35 +1,17 @@
-import { useEffect } from 'react';
-
-import { useDispatch } from 'react-redux';
 import { ThemeProvider } from '@mui/material';
 
 import Content from '../layout/Content';
 import Header from '../layout/Header';
 import SideBar from '../layout/SideBar';
-import { getSong, getVolume } from '../services/data';
-import {
-  setCurrentAlbum,
-  setSong,
-  setVolume,
-} from '../store/player/playerSlice';
+import useMyTunez from './hooks/useMyTunez';
 
-import { darkTheme } from '../../themes/theme';
-import { getAlbumById } from '../services/album';
+import { darkTheme, lightTheme } from '../../themes/theme';
 
 const MyTunez = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setVolume(getVolume()));
-
-    if (getSong()) {
-      dispatch(setSong(getSong()));
-      dispatch(setCurrentAlbum(getAlbumById(getSong().albumId)));
-    }
-  }, [dispatch]);
+  const { theme } = useMyTunez();
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
       <div className="app">
         <Header />
 

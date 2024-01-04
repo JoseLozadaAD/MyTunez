@@ -1,6 +1,7 @@
 import { Loop, Shuffle } from '@mui/icons-material';
 import { Box, Slider, Typography } from '@mui/material';
 
+import useShuffle from './hooks/useShuffle';
 import useProgressBar from './hooks/useProgressBar';
 import { convertToSeconds } from '../../../utils/methods';
 
@@ -12,6 +13,7 @@ import {
 
 const ProgressBar = () => {
   const { time, duration, currentTime, handleSliderChange } = useProgressBar();
+  const { shuffle, handleShuffle } = useShuffle();
 
   return (
     <Box className="progress-bar">
@@ -46,7 +48,11 @@ const ProgressBar = () => {
           </Box>
         )}
       </Box>
-      <Shuffle className="progress-bar__icon" sx={colorPrimaryContrast} />
+      <Shuffle
+        className="progress-bar__icon"
+        sx={!shuffle ? colorPrimaryContrast : colorPrimaryMain}
+        onClick={handleShuffle}
+      />
     </Box>
   );
 };

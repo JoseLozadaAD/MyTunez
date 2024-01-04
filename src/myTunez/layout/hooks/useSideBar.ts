@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
@@ -15,11 +15,14 @@ export const useSideBar = () => {
 
   const artists = getData('artists') || [];
 
-  const handleArtistClick = (artistId: number) => {
-    const albums = getAlbumByArtistId(artistId);
+  const handleArtistClick = useCallback(
+    (artistId: number) => {
+      const albums = getAlbumByArtistId(artistId);
 
-    dispatch(setAlbums(albums));
-  };
+      dispatch(setAlbums(albums));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     const hasScrollbar =

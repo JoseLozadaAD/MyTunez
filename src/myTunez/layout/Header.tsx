@@ -6,6 +6,7 @@ import MediaPlayer from '../components/player/MediaPlayer';
 import OptionsPlayer from '../components/player/OptionsPlayer';
 
 import { bgSecondaryDark } from '../../themes/styles';
+import SwitchTheme from '../components/SwitchTheme';
 
 const Header = () => (
   <Box className="header" sx={bgSecondaryDark}>
@@ -13,6 +14,7 @@ const Header = () => (
     <OptionsPlayer />
     <Search />
     <Audio />
+    <SwitchTheme />
   </Box>
 );
 

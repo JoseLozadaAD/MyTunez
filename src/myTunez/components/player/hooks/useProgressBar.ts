@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,10 +14,13 @@ const useProgressBar = () => {
 
   const { duration, currentTime } = song;
 
-  const handleSliderChange = (_: Event, newValue: number | number[]) => {
-    dispatch(setCurrentTime(newValue));
-    dispatch(setPause());
-  };
+  const handleSliderChange = useCallback(
+    (_: Event, newValue: number | number[]) => {
+      dispatch(setCurrentTime(newValue));
+      dispatch(setPause());
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     setTime(convertToMinutesAndSeconds(Number(currentTime)));

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import { persistData } from '../../../services/data';
@@ -18,11 +18,14 @@ const useModalForm = (nameStorage: string, handleClose: () => void) => {
 
   const { formState } = formControl;
 
-  const onHandleSubmit = (data: FieldValues) => {
-    persistData(nameStorage, data);
-    reset();
-    successAlert(`${capitalLetter(nameStorage)} created successfully`);
-  };
+  const onHandleSubmit = useCallback(
+    (data: FieldValues) => {
+      persistData(nameStorage, data);
+      reset();
+      successAlert(`${capitalLetter(nameStorage)} created successfully`);
+    },
+    [reset, nameStorage],
+  );
 
   useEffect(() => {
     setIsDisabled(!isFormFilled || Boolean(!formState.errors) || false);

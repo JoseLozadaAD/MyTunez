@@ -15,6 +15,7 @@ const initialState = {
   },
   volume: 100,
   currentAlbum: {},
+  shuffle: false,
 };
 
 const playerSlice = createSlice({
@@ -39,6 +40,9 @@ const playerSlice = createSlice({
     setCurrentAlbum: (state, action) => {
       state.currentAlbum = action.payload;
     },
+    setShuffle: (state, action) => {
+      state.shuffle = action.payload;
+    },
   },
 });
 
@@ -49,5 +53,6 @@ export const {
   setVolume,
   setCurrentTime,
   setCurrentAlbum,
+  setShuffle,
 } = playerSlice.actions;
 export default playerSlice.reducer;

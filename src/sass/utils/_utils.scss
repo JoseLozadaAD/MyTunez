@@ -20,6 +20,13 @@
   transition: all 0.3s ease-in-out;
 }
 
+.switch-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .font-16 {
   font-size: 1.6rem !important;
 }
