@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import { getAlbumByArtistId, getData } from '../../services/data';
+import { getData } from '../../services/data';
 import { setAlbums } from '../../store/album/albumSlice';
+import { getAlbumByArtistId } from '../../services/album';
 
 export const useSideBar = () => {
   const theme = useTheme();

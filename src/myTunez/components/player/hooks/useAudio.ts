@@ -3,13 +3,14 @@ import { RootState } from '../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentTime } from '../../../store/player/playerSlice';
 import { getSong } from '../../../services/data';
+import { convertToSeconds } from '../../../../utils/methods';
 
-const useAudio = () => {
+const useAudio = (handleNext: () => void) => {
   const dispatch = useDispatch();
   const {
     isPlaying,
     volume,
-    song: { audioSrc, currentTime },
+    song: { audioSrc, currentTime, duration },
   } = useSelector((state: RootState) => state.player);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -21,7 +22,7 @@ const useAudio = () => {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying]);
+  }, [isPlaying, audioSrc]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -36,6 +37,12 @@ const useAudio = () => {
       currentAudioRef.currentTime = currentTime;
     }
   }, [currentTime, isPlaying]);
+
+  useEffect(() => {
+    if (currentTime === convertToSeconds(duration)) {
+      handleNext();
+    }
+  }, [currentTime, duration, handleNext]);
 
   useEffect(() => {
     const currentAudioRef = audioRef.current;

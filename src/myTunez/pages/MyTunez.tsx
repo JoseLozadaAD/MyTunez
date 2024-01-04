@@ -7,9 +7,14 @@ import Content from '../layout/Content';
 import Header from '../layout/Header';
 import SideBar from '../layout/SideBar';
 import { getSong, getVolume } from '../services/data';
-import { setSong, setVolume } from '../store/player/playerSlice';
+import {
+  setCurrentAlbum,
+  setSong,
+  setVolume,
+} from '../store/player/playerSlice';
 
 import { darkTheme } from '../../themes/theme';
+import { getAlbumById } from '../services/album';
 
 const MyTunez = () => {
   const dispatch = useDispatch();
@@ -19,8 +24,9 @@ const MyTunez = () => {
 
     if (getSong()) {
       dispatch(setSong(getSong()));
+      dispatch(setCurrentAlbum(getAlbumById(getSong().albumId)));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={darkTheme}>

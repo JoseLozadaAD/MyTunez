@@ -9,14 +9,21 @@ import {
 import VolumeSlider from './VolumeSlider';
 import { bgPrimaryMain } from '../../../themes/styles';
 import useMediaPlayer from './hooks/useMediaPlayer';
+import usePrevNextSong from './hooks/usePrevNextSong';
 
 const MediaPlayer = () => {
   const { isPlaying, handlePlay, handlePause } = useMediaPlayer();
+  const { handlePrev, handleNext } = usePrevNextSong();
 
   return (
     <Box className="media-player">
       <Box className="media-player__controls">
-        <Fab size="small" sx={bgPrimaryMain} aria-label="add">
+        <Fab
+          size="small"
+          sx={bgPrimaryMain}
+          aria-label="add"
+          onClick={handlePrev}
+        >
           <KeyboardDoubleArrowLeft
             sx={{ color: 'primary.contrastText' }}
             fontSize="large"
@@ -43,7 +50,12 @@ const MediaPlayer = () => {
           <Pause sx={{ color: 'primary.contrastText' }} fontSize="large" />
         </Fab>
 
-        <Fab size="small" sx={bgPrimaryMain} aria-label="add">
+        <Fab
+          size="small"
+          sx={bgPrimaryMain}
+          aria-label="add"
+          onClick={handleNext}
+        >
           <KeyboardDoubleArrowRight
             sx={{ color: 'primary.contrastText' }}
             fontSize="large"
