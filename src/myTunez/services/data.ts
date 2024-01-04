@@ -38,20 +38,26 @@ export const persistData = (key: string, newData: FieldValues) => {
   }
 
   if (key !== SONGS) {
-    persist(key, newData);
+    persistOtherSongs(key, newData);
   } else {
     persistSong(newData);
   }
-};
-
-export const persistVolume = (volume: number) => {
-  localStorage.setItem('volume', JSON.stringify(volume));
 };
 
 export const getVolume = () => {
   const volume = localStorage.getItem('volume');
 
   return volume ? JSON.parse(volume) : 100;
+};
+
+export const getSong = () => {
+  const song = localStorage.getItem('currentSong');
+
+  return song ? JSON.parse(song) : null;
+};
+
+export const persist = (key: string, value: unknown) => {
+  localStorage.setItem(key, JSON.stringify(value));
 };
 
 const persistSong = (newData: FieldValues) => {
@@ -67,7 +73,7 @@ const persistSong = (newData: FieldValues) => {
   }
 };
 
-const persist = (key: string, newData: FieldValues) => {
+const persistOtherSongs = (key: string, newData: FieldValues) => {
   const existingData = localStorage.getItem(key);
   const data = existingData ? JSON.parse(existingData) : [];
   const id = new Date().getTime();

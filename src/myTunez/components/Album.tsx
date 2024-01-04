@@ -13,7 +13,9 @@ const Album = ({ album, onHandleClick }: AlbumProps) => {
   return (
     <Box className="card">
       <Box className="card__header">
-        <Typography variant="h3">{name}</Typography>
+        <Typography variant="h3" color="primary.contrastText">
+          {name}
+        </Typography>
         <Divider sx={bgPrimaryContrast} />
       </Box>
 
@@ -24,8 +26,12 @@ const Album = ({ album, onHandleClick }: AlbumProps) => {
 
         <Box className="card__content">
           <Box className="card__title">
-            <Typography variant="h4">{album.title}</Typography>
-            <Typography variant="h4">{album.year}</Typography>
+            <Typography variant="h4" color="primary.contrastText">
+              {album.title}
+            </Typography>
+            <Typography variant="h4" color="primary.contrastText">
+              {album.year}
+            </Typography>
           </Box>
 
           {album.songs &&

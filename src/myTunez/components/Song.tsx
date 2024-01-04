@@ -17,8 +17,11 @@ const Song = ({ number, song, handleClick }: SongProps) => {
       <Typography
         variant="h5"
         className={`number-song ${song.id === id ? 'no-opacity' : ''}`}
+        color="primary.contrastText"
       >{`${number}.`}</Typography>
-      <Typography variant="h5">{song.title}</Typography>
+      <Typography variant="h5" color="primary.contrastText">
+        {song.title}
+      </Typography>
       <Typography variant="h6" sx={{ color: 'primary.contrastText' }}>
         {song.duration}
       </Typography>

@@ -1,18 +1,20 @@
+import { useSelector } from 'react-redux';
 import { Box, Typography } from '@mui/material';
 
 import ProgressBar from './ProgressBar';
+import type { RootState } from '../../store/store';
 
 import { colorPrimaryContrast } from '../../../themes/styles';
 
 const OptionsPlayer = () => {
+  const {
+    song: { artistName, albumTitle, title, cover },
+  } = useSelector((state: RootState) => state.player);
+
   return (
     <Box className="options-player">
       <Box className="options-player__cover">
-        <img
-          src="https://www.rollingstone.com/wp-content/uploads/2018/06/rs-125606-092313-weekend-rock-10-500-1379961073.jpg?w=500"
-          alt="cover image"
-          loading="lazy"
-        />
+        {cover && <img src={cover} alt="cover" />}
       </Box>
 
       <Box className="options-player__info">
@@ -21,7 +23,7 @@ const OptionsPlayer = () => {
           color="primary"
           className="options-player__title"
         >
-          Pink Floyd
+          {artistName}
         </Typography>
 
         <Typography
@@ -29,7 +31,7 @@ const OptionsPlayer = () => {
           sx={colorPrimaryContrast}
           className="options-player__title"
         >
-          Cluster One - The Division Bell
+          {title} - {albumTitle}
         </Typography>
 
         <ProgressBar />

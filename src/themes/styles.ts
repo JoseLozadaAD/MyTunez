@@ -2,6 +2,10 @@ import { Theme } from '@mui/material';
 
 export const bgPrimaryMain = {
   bgcolor: 'primary.main',
+
+  '&:hover': {
+    bgcolor: 'primary.dark',
+  },
 };
 
 export const colorPrimaryMain = {
@@ -101,7 +105,8 @@ export const contentStyle = (theme: Theme) => ({
 });
 
 export const modalStyle = (theme: Theme) => ({
-  bgcolor: 'secondary.light',
+  bgcolor:
+    theme.palette.mode === 'light' ? 'secondary.dark' : 'secondary.light',
   border: `1px solid ${theme.palette.primary.contrastText}`,
 });
 

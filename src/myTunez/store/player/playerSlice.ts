@@ -9,6 +9,8 @@ const initialState = {
     albumTitle: '',
     cover: '',
     audioSrc: null,
+    duration: '',
+    currentTime: 0,
   },
   volume: 100,
 };
@@ -29,8 +31,12 @@ const playerSlice = createSlice({
     setVolume: (state, action) => {
       state.volume = action.payload;
     },
+    setCurrentTime: (state, action) => {
+      state.song.currentTime = action.payload;
+    },
   },
 });
 
-export const { setPlay, setPause, setSong, setVolume } = playerSlice.actions;
+export const { setPlay, setPause, setSong, setVolume, setCurrentTime } =
+  playerSlice.actions;
 export default playerSlice.reducer;

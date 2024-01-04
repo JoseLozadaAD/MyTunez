@@ -21,6 +21,7 @@ const useAlbum = (album: Album) => {
         artistName,
         albumTitle,
         cover,
+        duration: song.duration,
       }),
     );
   };
